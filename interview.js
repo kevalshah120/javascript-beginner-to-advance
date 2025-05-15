@@ -16,6 +16,8 @@ console.log(typeof undefined)    //undefined
 
 // object.assign() can also be used to shallow copy objects and array both
 
+// spread operator in js is used to convert the set , map values to array and after that we can also apply foreach or other properties of array not available in set
+
 let balue = "20"
 let balue2 = "20asd"
 let balue3 = null
