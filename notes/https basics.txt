@@ -1,0 +1,42 @@
+what does hypertext means in http
+
+it referes to the text that contains link to other documents or resources where clicking a link in one document can take you to another
+
+http is a protocol used to transfer this hypertext data between clients and a server
+
+It’s called “hyper” because it lets you jump around between pieces of information in a flexible, non-linear way, unlike reading a book page by page.
+
+HTTP stands for HyperText Transfer Protocol. It’s the set of rules that computers use to send and receive hypertext (and other web content, like images or videos) over the internet
+
+
+
+STATELESS Protocol
+
+No memory or state of previous request is maintained or stored
+each request sent from client to server is treated as independent and unreleated to previous requests.
+
+the server dont automatically remember what you did unless before extra mechanisms are used
+
+
+Request - response model
+
+HTTP works on a client-server model where the client (e.g., your browser) sends a request to the server, and the server sends back a response. Communication only happens when the client initiates it.
+
+Connectionless
+What it means: HTTP typically closes the connection between the client and server after each request-response cycle is complete. For the next request, a new connection is established.
+
+HTTP can transfer not just hypertext (HTML) but also other types of data, like images, videos, PDFs, or JSON. These are identified using MIME types (e.g., text/html, image/jpeg, application/json).
+
+HTTP operates at the application layer of the internet’s networking model and relies on lower layers (like TCP/IP for reliable data transfer or TLS for security in HTTPS).
+
+
+
+
+
+
+----------------------------------------------------------------------
+
+WebSocket is a protocol that enables full-duplex, bidirectional communication over a single, persistent TCP connection. It allows real-time, interactive data exchange between a client (e.g., browser) and a server.
+HTTP connections are typically short-lived. Each request opens a new connection (or reuses a pool in HTTP/1.1), which is closed after the response.
+Real-time apps need continuous data flow (e.g., chat messages). Repeated HTTP requests (polling) introduce latency and overhead.
+HTTP is client-initiated; servers can’t push data to clients without a request.

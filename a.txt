@@ -1,0 +1,88 @@
+node js or deno js
+
+in oreder to run js code node command is used
+
+var was first used to declare variable in ES1 earliest version
+it declares a variable either globally or within the function scope
+Scope: var is function-scoped or globally scoped if declared outside a function. This means a variable declared with var is accessible throughout the function it’s defined in, or globally if it’s outside any function.
+
+Redeclaration: You can redeclare a var variable within the same scope without errors.
+Initialization: Variables declared with var are initialized with undefined if no value is assigned.
+Hoisting: var declarations are hoisted to the top of their scope, and they are initialized with undefined.
+
+let was introduced in ECMAscript 6
+It declares a variable with block scope, meaning it’s limited to the block (e.g., {}) in which it’s defined.
+Variables declared with let are also hoisted but are not initialized, and they cannot be redeclared in the same scope.
+
+Behavior of var
+Variables declared with var are function-scoped, meaning they are accessible throughout the entire function in which they are declared, regardless of any block-level structures like while loops, if statements, or other {} blocks.
+Additionally, var declarations are hoisted to the top of their function scope and initialized with undefined. This means the variable exists from the start of the function, even before its declaration in the code.
+
+Variable Declared with let in a while Loop
+Behavior of let
+Variables declared with let are block-scoped, meaning they are only accessible within the block {} where they are declared, including any nested blocks.
+A while loop’s {} creates a new block scope for let variables, so a variable declared with let inside the loop is confined to that loop’s block.
+
+Like var, let declarations are hoisted to the top of their scope (in this case, the block), but they are not initialized, creating a Temporal Dead Zone (TDZ) where accessing the variable before its declaration throws a ReferenceError.
+Initialization: Variables declared with let are not initialized until their declaration is executed. Accessing them before declaration results in a ReferenceError (due to the Temporal Dead Zone, explained later).
+
+variable name can be started with eith underscore or $
+
+
+
+usestrict mode in javascript
+
+Special Numeric Values
+JavaScript can also represent special numeric values such as Infinity, -Infinity, and NaN (Not-a-Number). For example
+
+
+
+====-=--------------==========================================================================----------------------------------===
+concept of memory (heap and stack) in javascript
+
+Stack Memory
+Definition: The stack is a Last-In-First-Out (LIFO) data structure used for "static memory allocation". It stores data with a "fixed size", such as primitive values and function call information.
+Characteristics:
+Fast access and allocation (due to its structured nature).
+Limited size (stack overflow occurs if too many calls are nested).
+
+Heap Memory
+Definition: The heap is a large, unstructured region of memory used for" dynamic memory allocation". It stores data with variable or unknown size, such as objects.
+Characteristics:
+Slower than the stack (due to dynamic allocation and garbage collection).
+Larger capacity, suitable for complex data structures.
+Managed by the garbage collector to reclaim unused memory.
+
+The stack stores references (pointers) to these heap locations in obj and arr.
+let person = { name: "Bob" }; // person holds a reference (pointer) on the stack; { name: "Bob" } is in the heap
+
+--------------------------------------------------------------------------------------------------------------------------------
+Difference between functions and mehtods in javascript
+--------------------------------------------------------------------------------------------------------------------------------
+Every method is a function but every function is not method.
+
+A function is a standalone block of reusable code that performs a specific task. It is defined independently and can be invoked by its name or assigned to variables, passed as arguments, or returned from other functions. Functions are first-class citizens in JavaScript, meaning they can be treated like any other value.
+
+A method is a function that is a property of an object or a class. It is defined within the context of an object and is typically used to describe behaviors or actions associated with that object.
+It is stored as property of an object
+it can be called through an object while function can be called independently
+
+const person = {
+    name: "Alice",
+    greet: function() {
+        return `Hello, I'm ${this.name}!`;
+    }
+};
+
+console.log(person.greet()); // Hello, I'm Alice!
+
+// important thing
+
+const person = {
+    name: "Bob",
+    greet: function() {
+        console.log(this.name);
+    }
+};
+const greetFn = person.greet;
+greetFn(); // undefined (strict mode) or window.name (non-strict)

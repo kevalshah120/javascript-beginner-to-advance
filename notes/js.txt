@@ -1,0 +1,45 @@
+by default if you include the js file in head of html section for e.g.
+
+<html>
+    <head>
+        <script src="server.js"></script>
+    </head>
+    <body>
+    </body>
+</html>
+
+// in this case first the entire server.js file will be loaded and then the rest of the part of the code will be executed like the code inside the body part which may not de required in some of the scenario so
+
+in order to overcome that defer keyword is used 
+
+<html>
+    <head>
+        <script src="server.js" defer></script>
+    </head>
+    <body>
+    </body>
+</html>
+
+//using defer first the code inside the body part will get execute
+
+// to add a breakpoint in javascript file like when the js file is loaded and executed and if we want that the execution should be stopped at 1 line then add "debugger" keyword
+
+The debugger keyword is a built-in tool for pausing execution of your script at a specific point. It works when you have developer tools (like Chrome DevTools) open.
+
+
+If dev tools are not open, the debugger statement is ignored.
+
+==============================  THEORY OF SCOPES IN JS  ==============================
+Scope in JavaScript determines the accessibility (visibility) of variables, functions, and objects in different parts of your code. It defines where a variable can be used and where it’s undefined, helping manage memory and prevent naming conflicts. JavaScript has several types of scope, each governed by specific rules:
+
+global scope
+    script : contain variables declared using let and const in global scope
+    global (window object) : contains variables declared using var and also functions declared in global scope
+
+Local Scope: Variables declared inside a function, accessible only within that function.
+Global Scope: Variables declared outside any function or block, accessible everywhere.
+Lexical Scope: The scope defined by the physical structure of the code, determining variable access based on where functions are defined.A function can access variables from its own scope, its parent scope, and all ancestor scopes up to the global scope.Lexical scope enables closures, where a function retains access to its outer scope’s variables even after the outer function has finished executing.
+Block Scope: Variables declared with let or const inside a block (e.g., {}), accessible only within that block.
+
+Scope Chain: The mechanism JavaScript uses to resolve variables by searching through nested scopes, from inner to outer.It starts from the current scope and follows each scope’s Outer Environment Reference to parent scopes, up to the global scope.
+

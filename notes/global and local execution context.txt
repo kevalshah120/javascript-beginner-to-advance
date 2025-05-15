@@ -1,0 +1,35 @@
+In JavaScript, the Global Execution Context (GEC) is the default environment where code is executed when a JavaScript program starts. It represents the global scope and is created by the JavaScript engine before any code runs. Here's a concise explanation of the GEC and what happens with functions:
+
+The GEC is the first execution context created when a JavaScript file is executed. It consists of two phases:
+
+Creation Phase:
+    The JavaScript engine sets up the global object (window in browsers, global in Node.js).
+    Creates the this binding, which refers to the global object in the global scope.
+    Declares and hoists all variables (with var, initialized to undefined) and function declarations (fully hoisted with their definitions).
+    Sets up the memory for variables and functions before code execution.
+
+Execution Phase:
+    The engine executes the code line by line.
+    Assigns values to variables.
+    Executes function calls, if any.
+
+The GEC remains active for the entire lifetime of the program and is popped off the call stack only when the program terminates.
+
+What Happens with Functions
+    When a function is invoked, a new Function Execution Context (FEC) is created and pushed onto the call stack. This process is separate from the GEC but follows a similar structure:
+
+    Creation Phase (for the Function):
+        A new local scope is created for the function.
+        The this binding is determined based on how the function is called (e.g., this could be the global object, an object, or undefined in strict mode).
+        An arguments object is created, containing the parameters passed to the function.
+        Variables and inner function declarations within the function are hoisted (similar to the GEC, but within the function’s scope).
+        The engine sets up references to the outer environment (via the scope chain) to allow access to variables from parent scopes (e.g., the GEC or other functions).
+    
+    Execution Phase (for the Function):
+        The function’s code is executed line by line.
+        Variables are assigned values, and any logic within the function is processed.
+        If another function is called, a new FEC is created and pushed onto the call stack, repeating the process.
+    Completion:
+        Once the function finishes executing, its FEC is popped off the call stack.
+        Control returns to the calling context (often the GEC or another FEC).
+        The function’s local variables are typically garbage-collected unless retained (e.g., via closures).
